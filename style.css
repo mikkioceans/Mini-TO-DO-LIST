@@ -2,7 +2,8 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
-    background-color: bisque;
+    background-color: #222831;
+    
     
 }
 
@@ -33,6 +34,7 @@ body {
     border-radius: 4px;
     font-size: 20px;
     font-style: italic;
+   background-color: #eeeeee;
 
 }
 
@@ -54,12 +56,7 @@ body {
     
 }
 
-#demo {
-    font-size: 30px;
-    min-height: 30vh;
-    color: black;
 
-}
 
 #todo-lists {
     padding: 50px;
@@ -67,4 +64,24 @@ body {
 -webkit-box-shadow: 36px 43px 107px 35px rgba(191,171,171,0.63);
 -moz-box-shadow: 36px 43px 107px 35px rgba(191,171,171,0.63);
 border-radius: 20px;
+}
+
+li {
+    font-size: 20px;
+    margin: 7px 0;
+    background-color: #eae5d1;
+    color: #1f1f1f;
+    padding: 10px 6px;
+    list-style: none;
+    text-transform: uppercase;
+    text-align: start;
+    border-radius: 4px;
+}
+ul {
+    min-height: 40vh;
+}
+
+.to-do-H1{
+    font-size: 3.0em ;
+    color: #fbf9f7;
 }

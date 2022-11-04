@@ -1,29 +1,38 @@
 let addButton = document.querySelector('#add-btn');
 const todoInput = document.querySelector('#to-do-input');
-let trying = document.querySelector('.to-do-input');
-let checks = "";
-let para = document.querySelector('#demo');
-let mainUl = document.getElementById("#todo-lists")
 
 
+
+
+let ulElements = document.querySelector(".Notes-adds");
+console.log(ulElements)
+
+
+let lists = [];
 
 
 function addList() {
-    para.innerText += todoInput.value + "\r\n" ;
-  
+    lists.push(todoInput.value)
+  addMore()
   clearInput();
-  addMore();
+  console.log(lists)
+ 
 
 }
 
 function addMore() {
+  
+  let add = "";
+  
 
-    
-
+  for(let i = 0; i < lists.length; i++) {
+    add += "<li>" + lists[i] + "</li>";
+  }
+  ulElements.innerHTML = add;
 
 }
 
-
+// Function to clear your input after your clicking add 
 function clearInput (){
     todoInput.value = null;
    
