@@ -10,16 +10,18 @@ console.log(ulElements)
 
 let lists = [];
 
-
+// when add button is clicked, perform this action;
 function addList() {
     lists.push(todoInput.value)
-  addMore()
+    checkNoteLength();
+  addMore();
   clearInput();
-  console.log(lists)
+  
  
 
 }
-
+// Loop through the empty array, 
+// innerHTML is able to add html characters 
 function addMore() {
   
   let add = "";
@@ -38,3 +40,18 @@ function clearInput (){
    
 }
 
+//SETS A MINIMUM TEXTS NOTE CHARACTERS 
+function checkNoteLength(){
+  let lengthCheck = document.querySelector('#to-do-input');
+  console.log(lengthCheck)
+ 
+if(lengthCheck.value.length < 3){
+ alert("Note too short");
+ lists.pop()
+
+ 
+} else if(lengthCheck.value.length > 3) {
+ return true;
+
+}
+}
