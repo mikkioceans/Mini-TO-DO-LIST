@@ -16,6 +16,7 @@ function addList() {
     checkNoteLength();
   addMore();
   clearInput();
+  console.log(lists)
   
  
 
@@ -36,7 +37,7 @@ function addMore() {
 
 // Function to clear your input after your clicking add 
 function clearInput (){
-    todoInput.value = null;
+    todoInput.value = "";
    
 }
 
@@ -46,7 +47,7 @@ function checkNoteLength(){
   console.log(lengthCheck)
  
 if(lengthCheck.value.length < 3){
- alert("Note too short");
+ alert("Note is too short");
  lists.pop()
 
  
