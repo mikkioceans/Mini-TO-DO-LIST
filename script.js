@@ -13,8 +13,10 @@ let lists = [];
 // when add button is clicked, perform this action;
 function addList() {
     lists.push(todoInput.value)
+    disableTextsIfEmpty();
     checkNoteLength();
   addMore();
+  
   clearInput();
   console.log(lists)
   
@@ -46,7 +48,7 @@ function checkNoteLength(){
   let lengthCheck = document.querySelector('#to-do-input');
   console.log(lengthCheck)
  
-if(lengthCheck.value.length < 3){
+if(lengthCheck.value.length < 3 ){
  alert("Note is too short");
  lists.pop()
 
@@ -56,3 +58,12 @@ if(lengthCheck.value.length < 3){
 
 }
 }
+
+function disableTextsIfEmpty(){
+  if(todoInput.value.trim() === "") {
+    lists.pop()
+    alert("Todo list is empty");
+    
+}
+}
+
