@@ -5,20 +5,31 @@ const todoInput = document.querySelector('#to-do-input');
 
 
 let ulElements = document.querySelector(".Notes-adds");
-console.log(ulElements)
+
 
 
 let lists = [];
+//localStorage.setItem("lists", JSON.stringify(lists))
+let localStore = JSON.parse(localStorage.getItem('lists'))
+
+if(localStore){
+  lists = localStore;
+  addMore();
+  
+}
+
 
 // when add button is clicked, perform this action;
 function addList() {
     lists.push(todoInput.value)
-    disableTextsIfEmpty();
-    checkNoteLength();
+    
+  disableTextsIfEmpty();
+    localStorage.setItem("lists", JSON.stringify(lists))
+    
+    
   addMore();
   
-  clearInput();
-  console.log(lists)
+  todoInput.value = "";
   
  
 
@@ -37,33 +48,16 @@ function addMore() {
 
 }
 
-// Function to clear your input after your clicking add 
-function clearInput (){
-    todoInput.value = "";
-   
-}
 
-//SETS A MINIMUM TEXTS NOTE CHARACTERS 
-function checkNoteLength(){
-  let lengthCheck = document.querySelector('#to-do-input');
-  console.log(lengthCheck)
- 
-if(lengthCheck.value.length < 3 ){
- alert("Note is too short");
- lists.pop()
 
- 
-} else if(lengthCheck.value.length > 3) {
- return true;
 
-}
-}
 
 function disableTextsIfEmpty(){
-  if(todoInput.value.trim() === "") {
+  let lengthCheck = document.querySelector('#to-do-input');
+  if(todoInput.value.trim() === "" || lengthCheck.value.length < 3) {
     lists.pop()
-    alert("Todo list is empty");
-    
+   alert("Todo list is too short or  empty ");
+   
 }
 }
 
