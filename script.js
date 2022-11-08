@@ -1,10 +1,13 @@
 let addButton = document.querySelector('#add-btn');
+
 const todoInput = document.querySelector('#to-do-input');
 
-
-
-
 let ulElements = document.querySelector(".Notes-adds");
+
+let deleteBtn = document.getElementById("delete-btn")
+
+
+
 
 
 
@@ -17,13 +20,18 @@ if(localStore){
   addMore();
   
 }
-
+deleteBtn.addEventListener("click", ()=> {
+  localStorage.clear();
+  localStore = [];
+  lists = [];
+  ulElements.innerHTML = "";
+})
 
 // when add button is clicked, perform this action;
 function addList() {
     lists.push(todoInput.value)
     
-  disableTextsIfEmpty();
+  disableTextsIfEmptyOrShort();
     localStorage.setItem("lists", JSON.stringify(lists))
     
     
@@ -52,7 +60,7 @@ function addMore() {
 
 
 
-function disableTextsIfEmpty(){
+function disableTextsIfEmptyOrShort(){
   let lengthCheck = document.querySelector('#to-do-input');
   if(todoInput.value.trim() === "" || lengthCheck.value.length < 3) {
     lists.pop()
